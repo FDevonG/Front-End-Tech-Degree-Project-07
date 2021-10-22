@@ -1,0 +1,27 @@
+/***************
+Header
+***************/
+
+.main-header-wrapper {
+	display: flex;
+	justify-content: space-between;
+}
+
+.logo-wrapper {
+	position: relative;
+}
+
+.logo-tm {
+	position: absolute;
+	top: -5px;
+	right: -15px;
+}
+
+.user-info-main-wrapper{
+//	display: flex;
+}
+
+.notification-bell {
+	min-height: 50px;
+	min-width: 50px;
+}
