@@ -2,3 +2,49 @@
 Variables
 ***************/
 
+//FONT STACKS
+
+$font-url-google : "https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@300;400;500;800&display=swap";
+$font-stack--primary : 'Zen Kakau Gothic New', 'Helvetica Neue', sans-serif;
+
+//FONT WEIGHTS
+
+$font-weight--thin : 300;
+$font-weight--light : 400;
+$font-weight--medium : 500;
+$font-weight--bold : 800;
+
+//DESCRIPTIVE BASE COLORS
+
+$white : #fff;
+$black : #0b0b0b;
+$grey : #999;
+
+$shipCove : #7477BF;
+$mulledWine : #4D4C72;
+$deYork : #81C98F;
+
+$color-primary : $shipCove;
+$color-secondary : $mulledWine;
+$color-accent : $deYork;
+
+//COLOR MODIFIERS
+
+$pallets : (
+	grey: (
+		light: lighten($grey, 20%),
+		base: $grey,
+		dark: darken($grey, 20%),
+	),
+	accent:(
+		light : lighten($color-accent, 20%),
+		base : $color-accent,
+		dark: darken($color-accent, 20%),
+	)
+);
+
+//TEXT
+
+$base__font-size : 16px;
+$base__line : 24px;
+ 

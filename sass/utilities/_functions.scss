@@ -2,3 +2,19 @@
 Functions
 ***************/
 
+
+//check if the google font variable exists and import if so
+@if variable-exists(font-url--google) {
+	@import url($font-url--google);
+}
+
+//calculate ems
+@function em($target, $context : $base__font-size){
+	@return ($target / $context) * 1em;
+}
+
+
+//Returns a color out of a Sass Map of colors and shades
+@function palette($palette, $shade: 'base'){
+	@return map-get(map-get($pallets, $palette), $shade)
+}
