@@ -139,7 +139,7 @@ function GenerateGraphOptions(type){
 	
 	if(type === 'doughnut'){
 		graphOptions.plugins.legend = {align : 'center', position:'right'};
-		graphOptions.plugins.title.text = 'Daily Traffic'.toUpperCase();
+		graphOptions.plugins.title.text = 'Mobile Traffic'.toUpperCase();
 		graphOptions.elements = {arc : {borderWidth : 0}};
 	}
 	

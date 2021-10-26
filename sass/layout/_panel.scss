@@ -1,0 +1,12 @@
+/***************
+Panel Layout
+***************/
+
+.panel {
+	@extend %panel-default;
+	@include m(centered){
+		@extend %panel-default;
+		@extend %center-align;
+	}
+}
+

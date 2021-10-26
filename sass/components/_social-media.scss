@@ -1,0 +1,16 @@
+/***************
+Social Media
+***************/
+
+.social{
+	@include e('wrapper'){
+		
+		
+		svg{
+			fill: palette(primary);
+		}
+	}
+}
+
+
+

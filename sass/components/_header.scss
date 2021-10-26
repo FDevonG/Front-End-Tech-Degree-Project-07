@@ -2,26 +2,58 @@
 Header
 ***************/
 
-.main-header-wrapper {
-	display: flex;
-	justify-content: space-between;
+.header {
+	@include flexy($just: space-between, $align: center);
+	padding: 15px;
+	background-color: palette(primary);
+	color:$white;
 }
 
-.logo-wrapper {
+.logo {
 	position: relative;
+	
+	font-weight:$font-weight--bold;
+	
+	p{
+		position: absolute;
+		top: 0px;
+		right: -20px;
+	}
+	p,
+	span {
+		font-weight:$font-weight--thin;
+	}
 }
 
-.logo-tm {
+.logo,
+.user{
+//	@include flex($grow: 1);
+}
+
+.user{
+	@include flexy($align: center);
+	@include e('notifications'){
+		width: em(30px);
+		height: em(30px);
+		position: relative;
+	}
+	@include e('info'){
+		margin-left:em(30px);
+		padding-left:em(30px);
+		@include border(em(1px), $style : solid, $side : left);
+		@include flexy($align: center);
+		p{
+			margin-left:em(10px);
+		}
+	}
+}
+
+.notifcation-circle{
+	width: em(10px);
+	height: em(10px);
 	position: absolute;
-	top: -5px;
-	right: -15px;
-}
-
-.user-info-main-wrapper{
-//	display: flex;
-}
-
-.notification-bell {
-	min-height: 50px;
-	min-width: 50px;
+	top: em(-8px);
+	right: em(-8px);
+	background-color:palette(accent);
+	@extend %br-round;
 }

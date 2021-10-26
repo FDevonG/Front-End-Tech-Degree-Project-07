@@ -2,3 +2,46 @@
 Mixins
 ***************/
 
+//element selector
+@mixin e($element){
+	&__#{$element}{
+		@content;
+	}
+}
+
+//modifier selector
+@mixin m($modifier){
+	&--#{$modifier}{
+		@content;
+	}
+}
+
+@mixin flexy ($dis:flex, $dir:null, $wrap:null, $just: null, $align : null) {
+	display:$dis;
+	flex-direction: $dir;
+	flex-wrap: $wrap;
+	justify-content: $just;
+	align-items: $align;
+}
+
+@mixin flex($basis: null, $grow : 0, $shrink : 0,) {
+	flex-grow: $grow;
+	flex-shrink : $shrink;
+	flex-basis: $basis;
+}
+
+@mixin grid($dis : grid, $just : null, $align : null) {
+	display: $dis;
+	justify-content: $just;
+	align-content: $align;
+}
+
+//Border
+@mixin border ($width, $color: $white, $style : solid, $side : null) {
+	@if ($side != null) {
+		border-#{$side} : $width $style $color;
+	} 
+	@else {
+		border : $width $style $color;
+	}
+}

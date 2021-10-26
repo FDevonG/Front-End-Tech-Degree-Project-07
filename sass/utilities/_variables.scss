@@ -40,6 +40,11 @@ $pallets : (
 		light : lighten($color-accent, 20%),
 		base : $color-accent,
 		dark: darken($color-accent, 20%),
+	),
+	primary:(
+		light: lighten($color-primary, 20%),
+		base: $color-primary,
+		dark:darken($color-primary, 30%),
 	)
 );
 
