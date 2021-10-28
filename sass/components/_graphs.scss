@@ -1,0 +1,69 @@
+/***************
+Graphs
+***************/
+
+.graph {
+	
+//	@include mq('md'){
+//		h3{
+//			margin-bottom:em(10px);
+//		}
+//		@include grid($just: center, $align: center);
+//		grid-template-areas: 
+//			"line line"
+//			"bar doughnut";
+//	}
+	
+	@include e('wrapper'){
+		padding: em(20px);
+		@include border(em(1px), palette(grey), $side : bottom);
+		
+		@include mq('md'){
+//			&:nth-child(3){
+//				@include border($width: 1px, $color: palette(grey), $side: left);
+//			}
+//			&:first-child{
+//				position:relative;
+//			}
+//			@include flexy($dir: column, $just: space-between);
+		}
+		
+		@include e('buttons'){
+			@include flexy($just : space-around);
+			margin: em(10px) 0 em(20px);
+			@include e('button'){
+				@extend %graph-button-base;
+				@include m('current'){
+					@extend %graph-button-base;
+					background-color: palette(accent);
+					color: $white;
+					&:focus{
+						background-color: palette(primary);
+					}
+				}
+				&:hover,
+				&:focus{
+					background-color: palette(primary);
+					color: $white;
+				}
+			}
+//			@include mq('md'){
+//				position: absolute;
+//				right: 0;
+//				top: 0;
+//			}			
+		}
+	}
+	.line-graph{
+		grid-area: line;
+	}
+	.bar-graph{
+		grid-area: bar;
+	}
+	.doughnut-graph{
+		grid-area: doughnut;
+	}
+}
+
+
+

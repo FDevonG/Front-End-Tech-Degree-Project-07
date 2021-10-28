@@ -2,3 +2,45 @@
 Body
 ***************/
 
+.main-content{
+	@include mq('md'){
+		@include flexy();
+	}
+}
+
+.main-content-wrapper{
+	width: 100%;
+}
+
+//thise holds the h2 and the empty box content next to it at the top of the page
+.wrapper {
+	@include flexy($just : space-between, $align: center);
+	width: 100%;
+	height: em(55px);
+	h2 {
+		padding: em(20px);
+	}
+	
+	.empty-box {
+		@include flex($grow : 1.5);
+		height: em(55px);
+		background-color:palette(grey, x-light);
+		@include border(1px, palette(grey), $style : solid, $side : left);
+		@include border(1px, palette(grey), $style : solid, $side : bottom);
+	}
+}
+
+
+#alert-box{
+	background-color:palette(primary);
+	color:$white;
+	margin: em(20px);
+	@extend %br-default;
+	position: relative;
+}
+
+#close-alert-box{
+	position: absolute;
+	right: em(20px);
+	cursor: pointer;
+}

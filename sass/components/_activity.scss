@@ -1,0 +1,13 @@
+/***************
+Activity
+***************/
+
+.activity{
+	@include border(1px, $color: palette(grey, x-light), $side : bottom);
+	@include e('wrapper'){
+		@include border(1px, $color: palette(grey, x-light), $side : bottom);
+		@include e('arrow'){
+			@extend %hide;
+		}
+	}
+}

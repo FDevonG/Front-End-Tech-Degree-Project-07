@@ -3,7 +3,7 @@ Place Holders
 ***************/
 
 %panel-default{
-	padding:0 em(20px);
+	padding:em(20px);
 }
 
 %center-align{
@@ -12,4 +12,20 @@ Place Holders
 
 %br-round {
 	border-radius:50%;
+}
+
+%br-default {
+	border-radius: em(5px);
+}
+
+%graph-button-base{
+	border: none;
+	background-color:transparent;
+	padding:em(10px);
+	border-radius: em(40px);
+	transition: background-color .5s ease-out, color .5s ease-out;
+}
+
+%hide{
+	display:none;
 }

@@ -1,0 +1,39 @@
+/***************
+Messages
+***************/
+
+.message{
+	@include border(1px, $color: palette(grey), $side : bottom);
+	@include e('form'){
+		@include flexy($dir: column, $just : centered);
+		row-gap: em(20px);
+		& input,
+		& textarea{
+			background-color: palette(grey, x-light);
+			@include border(1px, $color : palette(grey));
+		}
+		button {
+			background-color:palette(primary);
+			border: none;
+			color: $white;
+			text-transform: uppercase;
+		}
+		& input,
+		& textarea,
+		& button {
+			@extend %br-default;
+			padding: em(20px);
+			transition: background-color .5s ease-out;
+		}
+		& input:hover,
+		& input:focus,
+		& textarea:hover,
+		& textarea:focus{
+			background-color:palette(accent, light);
+		}
+		& button:hover,
+		& button:focus{
+			background-color:palette(accent, dark);
+		}
+	}
+}

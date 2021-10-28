@@ -18,7 +18,7 @@ Place Holders
 ***************/
 /* line 5, ../../Users/devon/OneDrive/Desktop/Websites/Front-End-Tech-Degree-Project-07/sass/utilities/_placeholders.scss */
 .panel, .panel--centered {
-  padding: 0 1.25em;
+  padding: 1.25em;
 }
 
 /* line 9, ../../Users/devon/OneDrive/Desktop/Websites/Front-End-Tech-Degree-Project-07/sass/utilities/_placeholders.scss */
@@ -27,8 +27,29 @@ Place Holders
 }
 
 /* line 13, ../../Users/devon/OneDrive/Desktop/Websites/Front-End-Tech-Degree-Project-07/sass/utilities/_placeholders.scss */
-img, .notifcation-circle {
+img, .notifcation-circle, .social__wrapper__icon {
   border-radius: 50%;
+}
+
+/* line 17, ../../Users/devon/OneDrive/Desktop/Websites/Front-End-Tech-Degree-Project-07/sass/utilities/_placeholders.scss */
+#alert-box, .social__wrapper, .message__form input,
+.message__form textarea,
+.message__form button, .settings__buttons button, .settings select {
+  border-radius: 0.3125em;
+}
+
+/* line 21, ../../Users/devon/OneDrive/Desktop/Websites/Front-End-Tech-Degree-Project-07/sass/utilities/_placeholders.scss */
+.graph__wrapper__buttons__button, .graph__wrapper__buttons__button--current {
+  border: none;
+  background-color: transparent;
+  padding: 0.625em;
+  border-radius: 2.5em;
+  transition: background-color .5s ease-out, color .5s ease-out;
+}
+
+/* line 29, ../../Users/devon/OneDrive/Desktop/Websites/Front-End-Tech-Degree-Project-07/sass/utilities/_placeholders.scss */
+.activity__wrapper__arrow {
+  display: none;
 }
 
 /***************
@@ -413,38 +434,84 @@ Base Styles
 /* line 5, ../../Users/devon/OneDrive/Desktop/Websites/Front-End-Tech-Degree-Project-07/sass/base/_base.scss */
 * {
   box-sizing: border-box;
+  outline: none;
 }
 
-/* line 9, ../../Users/devon/OneDrive/Desktop/Websites/Front-End-Tech-Degree-Project-07/sass/base/_base.scss */
+/* line 10, ../../Users/devon/OneDrive/Desktop/Websites/Front-End-Tech-Degree-Project-07/sass/base/_base.scss */
 body {
-  font-family: "Zen Kakau Gothic New", "Helvetica Neue", sans-serif;
-  color: #0b0b0b;
+  font-family: Raleway, "Helvetica Neue", sans-serif;
+  color: #666666;
 }
 
-/* line 14, ../../Users/devon/OneDrive/Desktop/Websites/Front-End-Tech-Degree-Project-07/sass/base/_base.scss */
+/* line 15, ../../Users/devon/OneDrive/Desktop/Websites/Front-End-Tech-Degree-Project-07/sass/base/_base.scss */
 section {
   margin: 0;
 }
 
-/* line 18, ../../Users/devon/OneDrive/Desktop/Websites/Front-End-Tech-Degree-Project-07/sass/base/_base.scss */
+/* line 19, ../../Users/devon/OneDrive/Desktop/Websites/Front-End-Tech-Degree-Project-07/sass/base/_base.scss */
 img {
   width: 3.125em;
   height: 3.125em;
 }
 
-/* line 24, ../../Users/devon/OneDrive/Desktop/Websites/Front-End-Tech-Degree-Project-07/sass/base/_base.scss */
+/* line 25, ../../Users/devon/OneDrive/Desktop/Websites/Front-End-Tech-Degree-Project-07/sass/base/_base.scss */
 svg {
   fill: #fff;
 }
 
+/* line 29, ../../Users/devon/OneDrive/Desktop/Websites/Front-End-Tech-Degree-Project-07/sass/base/_base.scss */
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+}
+
+/* line 35, ../../Users/devon/OneDrive/Desktop/Websites/Front-End-Tech-Degree-Project-07/sass/base/_base.scss */
+h1,
+h2,
+h3 {
+  font-weight: 700;
+}
+
+/* line 41, ../../Users/devon/OneDrive/Desktop/Websites/Front-End-Tech-Degree-Project-07/sass/base/_base.scss */
+p,
+span {
+  font-weight: 100;
+}
+
+/* line 46, ../../Users/devon/OneDrive/Desktop/Websites/Front-End-Tech-Degree-Project-07/sass/base/_base.scss */
+p strong {
+  font-weight: 700;
+}
+
+/* line 50, ../../Users/devon/OneDrive/Desktop/Websites/Front-End-Tech-Degree-Project-07/sass/base/_base.scss */
+h1 {
+  font-size: 1.38312em;
+}
+
+/* line 54, ../../Users/devon/OneDrive/Desktop/Websites/Front-End-Tech-Degree-Project-07/sass/base/_base.scss */
+h2 {
+  font-size: 1.29625em;
+}
+
+/* line 58, ../../Users/devon/OneDrive/Desktop/Websites/Front-End-Tech-Degree-Project-07/sass/base/_base.scss */
+h3 {
+  font-size: 1.215em;
+  text-transform: uppercase;
+}
+
+/* line 63, ../../Users/devon/OneDrive/Desktop/Websites/Front-End-Tech-Degree-Project-07/sass/base/_base.scss */
+a {
+  text-decoration: none;
+  color: #7477BF;
+}
+
 /***************
-Layout Index
+Components Index
 ***************/
 /***************
 Panel Layout
-***************/
-/***************
-Components Index
 ***************/
 /***************
 Header
@@ -457,28 +524,24 @@ Header
   padding: 15px;
   background-color: #7477BF;
   color: #fff;
+  min-width: 100%;
 }
 
-/* line 12, ../../Users/devon/OneDrive/Desktop/Websites/Front-End-Tech-Degree-Project-07/sass/components/_header.scss */
+/* line 13, ../../Users/devon/OneDrive/Desktop/Websites/Front-End-Tech-Degree-Project-07/sass/components/_header.scss */
 .logo {
   position: relative;
-  font-weight: 800;
 }
 
-/* line 17, ../../Users/devon/OneDrive/Desktop/Websites/Front-End-Tech-Degree-Project-07/sass/components/_header.scss */
-.logo p {
+/* line 16, ../../Users/devon/OneDrive/Desktop/Websites/Front-End-Tech-Degree-Project-07/sass/components/_header.scss */
+.logo span:nth-child(2) {
   position: absolute;
-  top: 0px;
-  right: -20px;
+  top: -0.5em;
+  right: -1.5625em;
+  text-transform: uppercase;
+  font-size: 0.625em;
 }
 
-/* line 22, ../../Users/devon/OneDrive/Desktop/Websites/Front-End-Tech-Degree-Project-07/sass/components/_header.scss */
-.logo p,
-.logo span {
-  font-weight: 300;
-}
-
-/* line 33, ../../Users/devon/OneDrive/Desktop/Websites/Front-End-Tech-Degree-Project-07/sass/components/_header.scss */
+/* line 25, ../../Users/devon/OneDrive/Desktop/Websites/Front-End-Tech-Degree-Project-07/sass/components/_header.scss */
 .user {
   display: flex;
   align-items: center;
@@ -500,12 +563,12 @@ Header
   align-items: center;
 }
 
-/* line 45, ../../Users/devon/OneDrive/Desktop/Websites/Front-End-Tech-Degree-Project-07/sass/components/_header.scss */
+/* line 37, ../../Users/devon/OneDrive/Desktop/Websites/Front-End-Tech-Degree-Project-07/sass/components/_header.scss */
 .user__info p {
   margin-left: 0.625em;
 }
 
-/* line 51, ../../Users/devon/OneDrive/Desktop/Websites/Front-End-Tech-Degree-Project-07/sass/components/_header.scss */
+/* line 43, ../../Users/devon/OneDrive/Desktop/Websites/Front-End-Tech-Degree-Project-07/sass/components/_header.scss */
 .notifcation-circle {
   width: 0.625em;
   height: 0.625em;
@@ -523,41 +586,364 @@ Nav
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #313369;
+  background-color: #41448c;
 }
 
 /* line 7, ../../Users/devon/OneDrive/Desktop/Websites/Front-End-Tech-Degree-Project-07/sass/utilities/_mixins.scss */
 .nav__item {
-  margin: 20px;
-  width: 50px;
-  height: 50px;
+  margin: 15px;
+  width: 30px;
+  height: 30px;
+}
+
+/* line 12, ../../Users/devon/OneDrive/Desktop/Websites/Front-End-Tech-Degree-Project-07/sass/components/_nav.scss */
+.nav__item svg {
+  transition: fill .5s ease-out, transform .5s ease-out, stroke .5s ease-out;
+}
+
+/* line 17, ../../Users/devon/OneDrive/Desktop/Websites/Front-End-Tech-Degree-Project-07/sass/components/_nav.scss */
+.nav__item a:focus svg,
+.nav__item a:hover svg {
+  fill: #81C98F;
+  stroke: #81C98F;
+  stroke-width: 0.125em;
+  transform: scale(1.2);
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  /* line 5, ../../Users/devon/OneDrive/Desktop/Websites/Front-End-Tech-Degree-Project-07/sass/components/_nav.scss */
+  .nav {
+    flex-direction: column;
+    justify-content: flex-start;
+    flex-grow: 1;
+    flex-shrink: 0;
+  }
 }
 
 /***************
 Body
 ***************/
+@media (min-width: 768px) and (max-width: 1024px) {
+  /* line 5, ../../Users/devon/OneDrive/Desktop/Websites/Front-End-Tech-Degree-Project-07/sass/components/_body.scss */
+  .main-content {
+    display: flex;
+  }
+}
+
+/* line 11, ../../Users/devon/OneDrive/Desktop/Websites/Front-End-Tech-Degree-Project-07/sass/components/_body.scss */
+.main-content-wrapper {
+  width: 100%;
+}
+
+/* line 16, ../../Users/devon/OneDrive/Desktop/Websites/Front-End-Tech-Degree-Project-07/sass/components/_body.scss */
+.wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 3.4375em;
+}
+
+/* line 20, ../../Users/devon/OneDrive/Desktop/Websites/Front-End-Tech-Degree-Project-07/sass/components/_body.scss */
+.wrapper h2 {
+  padding: 1.25em;
+}
+
+/* line 24, ../../Users/devon/OneDrive/Desktop/Websites/Front-End-Tech-Degree-Project-07/sass/components/_body.scss */
+.wrapper .empty-box {
+  flex-grow: 1.5;
+  flex-shrink: 0;
+  height: 3.4375em;
+  background-color: #e6e6e6;
+  border-left: 1px solid #999;
+  border-bottom: 1px solid #999;
+}
+
+/* line 34, ../../Users/devon/OneDrive/Desktop/Websites/Front-End-Tech-Degree-Project-07/sass/components/_body.scss */
+#alert-box {
+  background-color: #7477BF;
+  color: #fff;
+  margin: 1.25em;
+  position: relative;
+}
+
+/* line 42, ../../Users/devon/OneDrive/Desktop/Websites/Front-End-Tech-Degree-Project-07/sass/components/_body.scss */
+#close-alert-box {
+  position: absolute;
+  right: 1.25em;
+  cursor: pointer;
+}
+
+/***************
+Graphs
+***************/
+/* line 7, ../../Users/devon/OneDrive/Desktop/Websites/Front-End-Tech-Degree-Project-07/sass/utilities/_mixins.scss */
+.graph__wrapper {
+  padding: 1.25em;
+  border-bottom: 0.0625em solid #999;
+}
+
+/* line 7, ../../Users/devon/OneDrive/Desktop/Websites/Front-End-Tech-Degree-Project-07/sass/utilities/_mixins.scss */
+.graph__wrapper__buttons {
+  display: flex;
+  justify-content: space-around;
+  margin: 0.625em 0 1.25em;
+}
+
+/* line 14, ../../Users/devon/OneDrive/Desktop/Websites/Front-End-Tech-Degree-Project-07/sass/utilities/_mixins.scss */
+.graph__wrapper__buttons__button--current {
+  background-color: #81C98F;
+  color: #fff;
+}
+
+/* line 40, ../../Users/devon/OneDrive/Desktop/Websites/Front-End-Tech-Degree-Project-07/sass/components/_graphs.scss */
+.graph__wrapper__buttons__button--current:focus {
+  background-color: #7477BF;
+}
+
+/* line 44, ../../Users/devon/OneDrive/Desktop/Websites/Front-End-Tech-Degree-Project-07/sass/components/_graphs.scss */
+.graph__wrapper__buttons__button:hover, .graph__wrapper__buttons__button:focus {
+  background-color: #7477BF;
+  color: #fff;
+}
+
+/* line 57, ../../Users/devon/OneDrive/Desktop/Websites/Front-End-Tech-Degree-Project-07/sass/components/_graphs.scss */
+.graph .line-graph {
+  grid-area: line;
+}
+
+/* line 60, ../../Users/devon/OneDrive/Desktop/Websites/Front-End-Tech-Degree-Project-07/sass/components/_graphs.scss */
+.graph .bar-graph {
+  grid-area: bar;
+}
+
+/* line 63, ../../Users/devon/OneDrive/Desktop/Websites/Front-End-Tech-Degree-Project-07/sass/components/_graphs.scss */
+.graph .doughnut-graph {
+  grid-area: doughnut;
+}
+
 /***************
 Social Media
 ***************/
-/* line 9, ../../Users/devon/OneDrive/Desktop/Websites/Front-End-Tech-Degree-Project-07/sass/components/_social-media.scss */
+/* line 5, ../../Users/devon/OneDrive/Desktop/Websites/Front-End-Tech-Degree-Project-07/sass/components/_social-media.scss */
+.social {
+  border-bottom: 1px solid #999;
+}
+
+/* line 7, ../../Users/devon/OneDrive/Desktop/Websites/Front-End-Tech-Degree-Project-07/sass/utilities/_mixins.scss */
+.social__wrapper {
+  display: flex;
+  align-items: center;
+  background-color: #e6e6e6;
+  border: 1px solid #999;
+  padding: 1.25em;
+  margin-top: 1.25em;
+}
+
+/* line 25, ../../Users/devon/OneDrive/Desktop/Websites/Front-End-Tech-Degree-Project-07/sass/components/_social-media.scss */
+.social__wrapper h3 {
+  color: #7477BF;
+}
+
+/* line 29, ../../Users/devon/OneDrive/Desktop/Websites/Front-End-Tech-Degree-Project-07/sass/components/_social-media.scss */
+.social__wrapper p:nth-child(1) {
+  font-size: 1.125em;
+  color: #7477BF;
+}
+
+/* line 34, ../../Users/devon/OneDrive/Desktop/Websites/Front-End-Tech-Degree-Project-07/sass/components/_social-media.scss */
+.social__wrapper p:nth-child(2) {
+  font-size: 1.875em;
+}
+
+/* line 38, ../../Users/devon/OneDrive/Desktop/Websites/Front-End-Tech-Degree-Project-07/sass/components/_social-media.scss */
 .social__wrapper svg {
-  fill: #7477BF;
+  fill: #fff;
+  width: 2.8125em;
+  height: 2.8125em;
+}
+
+/* line 7, ../../Users/devon/OneDrive/Desktop/Websites/Front-End-Tech-Degree-Project-07/sass/utilities/_mixins.scss */
+.social__wrapper__icon {
+  height: 100%;
+  padding: 1.25em;
+  margin-right: 1.25em;
+  background-color: #7477BF;
 }
 
 /***************
-Forms
+Users
 ***************/
+/* line 5, ../../Users/devon/OneDrive/Desktop/Websites/Front-End-Tech-Degree-Project-07/sass/components/_users.scss */
+.users {
+  border-bottom: 1px solid #cccccc;
+}
+
+/* line 7, ../../Users/devon/OneDrive/Desktop/Websites/Front-End-Tech-Degree-Project-07/sass/utilities/_mixins.scss */
+.users__wrapper {
+  border-bottom: 1px solid #cccccc;
+}
+
+/***************
+Activity
+***************/
+/* line 5, ../../Users/devon/OneDrive/Desktop/Websites/Front-End-Tech-Degree-Project-07/sass/components/_activity.scss */
+.activity {
+  border-bottom: 1px solid #e6e6e6;
+}
+
+/* line 7, ../../Users/devon/OneDrive/Desktop/Websites/Front-End-Tech-Degree-Project-07/sass/utilities/_mixins.scss */
+.activity__wrapper {
+  border-bottom: 1px solid #e6e6e6;
+}
+
+/***************
+Messages
+***************/
+/* line 5, ../../Users/devon/OneDrive/Desktop/Websites/Front-End-Tech-Degree-Project-07/sass/components/_messages.scss */
+.message {
+  border-bottom: 1px solid #999;
+}
+
+/* line 7, ../../Users/devon/OneDrive/Desktop/Websites/Front-End-Tech-Degree-Project-07/sass/utilities/_mixins.scss */
+.message__form {
+  display: flex;
+  flex-direction: column;
+  justify-content: centered;
+  row-gap: 1.25em;
+}
+
+/* line 10, ../../Users/devon/OneDrive/Desktop/Websites/Front-End-Tech-Degree-Project-07/sass/components/_messages.scss */
+.message__form input,
+.message__form textarea {
+  background-color: #e6e6e6;
+  border: 1px solid #999;
+}
+
+/* line 15, ../../Users/devon/OneDrive/Desktop/Websites/Front-End-Tech-Degree-Project-07/sass/components/_messages.scss */
+.message__form button {
+  background-color: #7477BF;
+  border: none;
+  color: #fff;
+  text-transform: uppercase;
+}
+
+/* line 21, ../../Users/devon/OneDrive/Desktop/Websites/Front-End-Tech-Degree-Project-07/sass/components/_messages.scss */
+.message__form input,
+.message__form textarea,
+.message__form button {
+  padding: 1.25em;
+  transition: background-color .5s ease-out;
+}
+
+/* line 28, ../../Users/devon/OneDrive/Desktop/Websites/Front-End-Tech-Degree-Project-07/sass/components/_messages.scss */
+.message__form input:hover,
+.message__form input:focus,
+.message__form textarea:hover,
+.message__form textarea:focus {
+  background-color: #c8e8ce;
+}
+
+/* line 34, ../../Users/devon/OneDrive/Desktop/Websites/Front-End-Tech-Degree-Project-07/sass/components/_messages.scss */
+.message__form button:hover,
+.message__form button:focus {
+  background-color: #44a056;
+}
+
+/***************
+Settings
+***************/
+/* line 7, ../../Users/devon/OneDrive/Desktop/Websites/Front-End-Tech-Degree-Project-07/sass/utilities/_mixins.scss */
+.settings__wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0.625em 0;
+}
+
+/* line 7, ../../Users/devon/OneDrive/Desktop/Websites/Front-End-Tech-Degree-Project-07/sass/utilities/_mixins.scss */
+.settings__buttons {
+  margin-top: 1.25em;
+  display: flex;
+  gap: 5%;
+}
+
+/* line 14, ../../Users/devon/OneDrive/Desktop/Websites/Front-End-Tech-Degree-Project-07/sass/components/_settings.scss */
+.settings__buttons button {
+  flex-grow: 1;
+  flex-shrink: 0;
+  padding: 20px;
+  border: none;
+  color: #fff;
+  transform: background-color .4s ease-out;
+}
+
+/* line 21, ../../Users/devon/OneDrive/Desktop/Websites/Front-End-Tech-Degree-Project-07/sass/components/_settings.scss */
+.settings__buttons button:nth-child(1) {
+  background-color: #7477BF;
+}
+
+/* line 23, ../../Users/devon/OneDrive/Desktop/Websites/Front-End-Tech-Degree-Project-07/sass/components/_settings.scss */
+.settings__buttons button:nth-child(1):hover, .settings__buttons button:nth-child(1):focus {
+  background-color: #81C98F;
+}
+
+/* line 28, ../../Users/devon/OneDrive/Desktop/Websites/Front-End-Tech-Degree-Project-07/sass/components/_settings.scss */
+.settings__buttons button:nth-child(2) {
+  background-color: #999;
+}
+
+/* line 30, ../../Users/devon/OneDrive/Desktop/Websites/Front-End-Tech-Degree-Project-07/sass/components/_settings.scss */
+.settings__buttons button:nth-child(2):hover, .settings__buttons button:nth-child(2):focus {
+  background-color: #81C98F;
+}
+
+/* line 37, ../../Users/devon/OneDrive/Desktop/Websites/Front-End-Tech-Degree-Project-07/sass/components/_settings.scss */
+.settings select {
+  width: 100%;
+  padding: 1.25em;
+  background-color: #e6e6e6;
+  border: 1px solid #999;
+  appearance: none;
+  background-image: url("../svgs/arrow.svg");
+  background-repeat: no-repeat;
+  background-position: 98%;
+  background-size: 1.5625em;
+  transition: background-color .4s ease-out;
+}
+
+/* line 49, ../../Users/devon/OneDrive/Desktop/Websites/Front-End-Tech-Degree-Project-07/sass/components/_settings.scss */
+.settings select:hover, .settings select:focus {
+  background-color: #81C98F;
+  border: 1px solid #7477BF;
+}
+
+/**********************************************************
+the form switches
+
 /* The switch - the box around the slider */
-/* line 6, ../../Users/devon/OneDrive/Desktop/Websites/Front-End-Tech-Degree-Project-07/sass/components/_forms.scss */
+/* line 61, ../../Users/devon/OneDrive/Desktop/Websites/Front-End-Tech-Degree-Project-07/sass/components/_settings.scss */
 .switch {
   position: relative;
   display: inline-block;
-  width: 100px;
-  height: 34px;
+  width: 6.25em;
+  height: 2.125em;
+}
+
+/* line 68, ../../Users/devon/OneDrive/Desktop/Websites/Front-End-Tech-Degree-Project-07/sass/components/_settings.scss */
+.switch,
+.slider {
+  border-radius: 2.125em;
+}
+
+/* line 73, ../../Users/devon/OneDrive/Desktop/Websites/Front-End-Tech-Degree-Project-07/sass/components/_settings.scss */
+.switch,
+.slider:before {
+  border: 0.125em solid #cccccc;
 }
 
 /* Hide default HTML checkbox */
-/* line 14, ../../Users/devon/OneDrive/Desktop/Websites/Front-End-Tech-Degree-Project-07/sass/components/_forms.scss */
+/* line 80, ../../Users/devon/OneDrive/Desktop/Websites/Front-End-Tech-Degree-Project-07/sass/components/_settings.scss */
 .switch input {
   opacity: 0;
   width: 0;
@@ -565,7 +951,7 @@ Forms
 }
 
 /* The slider */
-/* line 21, ../../Users/devon/OneDrive/Desktop/Websites/Front-End-Tech-Degree-Project-07/sass/components/_forms.scss */
+/* line 87, ../../Users/devon/OneDrive/Desktop/Websites/Front-End-Tech-Degree-Project-07/sass/components/_settings.scss */
 .slider {
   position: absolute;
   cursor: pointer;
@@ -573,44 +959,49 @@ Forms
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: #ccc;
-  -webkit-transition: .4s;
-  transition: .4s;
-  border-radius: 34px;
+  background-color: #666666;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
+  color: #fff;
+  text-transform: uppercase;
 }
 
-/* line 37, ../../Users/devon/OneDrive/Desktop/Websites/Front-End-Tech-Degree-Project-07/sass/components/_forms.scss */
+/* line 101, ../../Users/devon/OneDrive/Desktop/Websites/Front-End-Tech-Degree-Project-07/sass/components/_settings.scss */
 .slider:before {
   position: absolute;
   content: "";
-  height: 26px;
-  width: 26px;
-  left: 4px;
-  bottom: 4px;
+  height: 1.375em;
+  width: 1.375em;
+  left: 0.125em;
+  bottom: 0.125em;
   background-color: white;
-  -webkit-transition: .4s;
-  transition: .4s;
   border-radius: 50%;
 }
 
-/* line 50, ../../Users/devon/OneDrive/Desktop/Websites/Front-End-Tech-Degree-Project-07/sass/components/_forms.scss */
+/* line 112, ../../Users/devon/OneDrive/Desktop/Websites/Front-End-Tech-Degree-Project-07/sass/components/_settings.scss */
+.slider,
+.slider:before {
+  transition: transform .5s ease-in-out, backround-color .5s ease-in-out;
+}
+
+/* line 117, ../../Users/devon/OneDrive/Desktop/Websites/Front-End-Tech-Degree-Project-07/sass/components/_settings.scss */
 input:checked + .slider {
-  background-color: #2196F3;
+  background-color: #7477BF;
 }
 
-/* line 54, ../../Users/devon/OneDrive/Desktop/Websites/Front-End-Tech-Degree-Project-07/sass/components/_forms.scss */
-input:focus + .slider {
-  box-shadow: 0 0 1px #2196F3;
+/* line 121, ../../Users/devon/OneDrive/Desktop/Websites/Front-End-Tech-Degree-Project-07/sass/components/_settings.scss */
+input:hover + .slider,
+input:focus + .slider,
+.slider:focus,
+.slider:hover {
+  box-shadow: 0 0 0.625em #7477BF;
+  background-color: #81C98F;
 }
 
-/* line 58, ../../Users/devon/OneDrive/Desktop/Websites/Front-End-Tech-Degree-Project-07/sass/components/_forms.scss */
+/* line 129, ../../Users/devon/OneDrive/Desktop/Websites/Front-End-Tech-Degree-Project-07/sass/components/_settings.scss */
 input:checked + .slider:before {
-  -webkit-transform: translateX(66px);
-  -ms-transform: translateX(66px);
-  transform: translateX(66px);
+  transform: translateX(4.125em);
 }
 
 /*# sourceMappingURL=styles.css.map */

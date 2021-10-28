@@ -1,0 +1,12 @@
+/***************
+Users
+***************/
+
+.users{
+	@include border(1px, $color: palette(grey, light), $side : bottom);
+	@include e('wrapper'){
+		@include border(1px, $color: palette(grey, light), $side : bottom);
+	}
+}
+
+

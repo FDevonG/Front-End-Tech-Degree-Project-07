@@ -45,3 +45,26 @@ Mixins
 		border : $width $style $color;
 	}
 }
+
+
+//Media Queries
+@mixin mq($break){
+	@if $break == "sm"{
+		@media(min-width: $brkpoint-sm) and (max-width: $brkpoint-md){
+			@content;
+		}
+	}
+	@else if $break == "md"{
+		@media(min-width: $brkpoint-md) and (max-width: $brkpoint-lg){
+			@content;
+		}
+	}
+	@else if $break == 'lg' {
+		@media(min-width: $brkpoint-lg){
+			
+		}
+	}
+	@else {
+		@error "Whoops! No value could be retrieved for `#{$break}`"
+	}
+}

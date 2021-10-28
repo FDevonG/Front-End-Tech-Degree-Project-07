@@ -1,5 +1,5 @@
 /*********************
-Chart Controller
+MAIN JS
 *********************/
 
 /*************************
@@ -21,7 +21,7 @@ const secondaryColor = 'rgb(129,201,143)';
 const thirdColor = 'rgb(116, 177, 191)';
 
 /*************************
-GENERAL FUNCTIONS
+GENERAL GRAPH FUNCTIONS
 *************************/
 
 //this functions creates the graphs
@@ -79,7 +79,7 @@ const monthlyLineGraphData = {
 lineGraph = CreateGraph('line', hourlyLineGraphData, lineCanvas, GenerateGraphOptions('line'));
 
 //adds a evvent listen on the line graph buttons container to change the line graph
-document.querySelector('.lineGraphButtons').addEventListener('click', (event) => {
+document.querySelector('.graph__wrapper__buttons').addEventListener('click', (event) => {
 	if(event.target.tagName === 'BUTTON'){
 		let graphData;
 		if(event.target.textContent.toLowerCase() === 'hourly'){
@@ -94,6 +94,9 @@ document.querySelector('.lineGraphButtons').addEventListener('click', (event) =>
 		if(event.target.textContent.toLowerCase() === 'monthly'){
 			graphData = monthlyLineGraphData;
 		}
+		document.querySelector('.graph__wrapper__buttons__button--current').className = 'graph__wrapper__buttons__button';
+		event.target.className = 'graph__wrapper__buttons__button--current';
+		event.target.blur();
 		DestroyGraph(lineGraph);
 		lineGraph = CreateGraph('line', graphData, lineCanvas, GenerateGraphOptions('line'));
 	}
@@ -102,12 +105,10 @@ document.querySelector('.lineGraphButtons').addEventListener('click', (event) =>
 function GenerateGraphOptions(type){
 	
 	let graphOptions = {
+		responsive : true,
+//		maintainAspectRatio: true,
 		plugins: {
-			title : {
-				display: true,
-				position: 'top',
-				align:'start',
-			},
+
 		}
 	}
 
@@ -129,17 +130,14 @@ function GenerateGraphOptions(type){
 			},
 		}
 		graphOptions.plugins.legend = {display: false};
-		graphOptions.plugins.title.text = 'Traffic'.toUpperCase();
 	}
 	
 	if(type === 'bar'){
 		graphOptions.plugins.legend = {display : false};
-		graphOptions.plugins.title.text = 'Daily Traffic'.toUpperCase();
 	}
 	
 	if(type === 'doughnut'){
 		graphOptions.plugins.legend = {align : 'center', position:'right'};
-		graphOptions.plugins.title.text = 'Mobile Traffic'.toUpperCase();
 		graphOptions.elements = {arc : {borderWidth : 0}};
 	}
 	
@@ -181,6 +179,78 @@ const doughnutGraphData = {
 
 doughnutGraph = CreateGraph('doughnut', doughnutGraphData, doughnutCanvas, GenerateGraphOptions('doughnut'));
 
+
+/*************************
+SETTINGS
+*************************/
+
+const emailInput = document.querySelector('#email-notifications');
+const emailOnText = document.querySelector('#email-text-on');
+const emailOffText = document.querySelector('#email-text-off');
+
+const email = localStorage.getItem('email');
+
+if(email === 'on'){
+	emailInput.checked = true;
+	emailOffText.textContent = '';
+	emailOnText.textContent = 'On';
+} else {
+	emailInput.checked = false;
+	emailOffText.textContent = 'Off';
+	emailOnText.textContent = '';
+}
+
+emailInput.addEventListener('change', () => {
+	if(emailInput.checked){
+		localStorage.setItem('email', 'on');
+		emailOffText.textContent = '';
+		emailOnText.textContent = 'On';
+	} else{
+		localStorage.setItem('email', 'off');
+		emailOffText.textContent = 'Off';
+		emailOnText.textContent = '';
+	}
+	emailInput.blur();
+});
+
+const profileInput = document.querySelector('#profile-public');
+const profileOnText = document.querySelector('#profile-text-on');
+const profileOffText = document.querySelector('#profile-text-off');
+
+const profile = localStorage.getItem('profile');
+
+if(profile === 'on'){
+	profileInput.checked = true;
+	profileOffText.textContent = '';
+	profileOnText.textContent = 'On';
+} else {
+	profileInput.checked = false;
+	profileOffText.textContent = 'Off';
+	profileOnText.textContent = '';
+}
+
+profileInput.addEventListener('change', () => {
+	if(profileInput.checked){
+		localStorage.setItem('profile', 'on');
+		profileOffText.textContent = '';
+		profileOnText.textContent = 'On';
+	} else{
+		localStorage.setItem('profile', 'off');
+		profileOffText.textContent = 'Off';
+		profileOnText.textContent = '';
+	}
+	profileInput.blur();
+});
+
+
+/*************************
+NOTIFICATIONS
+*************************/
+
+document.querySelector('#close-alert-box').addEventListener('click', () => {
+	document.querySelector('#alert-box').remove();
+	document.querySelector('.notifcation-circle').remove();
+});
 
 
 

@@ -6,8 +6,25 @@ Nav
 	@include flexy($just: center, $align: center);
 	background-color: palette(primary, dark);
 	@include e(item){
-		margin:20px;
-		width: 50px;
-		height: 50px;
+		margin:15px;
+		width: 30px;
+		height: 30px;
+		svg{
+			transition: fill .5s ease-out, transform .5s ease-out, stroke .5s ease-out;
+		}
+		a:focus,
+		a:hover{
+			svg{
+				fill:palette(accent);
+				stroke:palette(accent);
+				stroke-width:em(2px);
+				transform: scale(1.2);
+			}
+		}
+	}
+	@include mq('md'){
+		flex-direction: column;
+		justify-content: flex-start;
+		@include flex($grow: 1);
 	}
 }

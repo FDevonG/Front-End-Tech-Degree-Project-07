@@ -3,12 +3,51 @@ Social Media
 ***************/
 
 .social{
+	@include border(1px, $color: palette(grey), $side : bottom);
+	
+//	.social-container{
+//		@include mq('md'){
+//			@include flexy($just: space-between);
+//			@include flex(30%);
+//			gap: em(10px);
+//		}
+//	}
+	
 	@include e('wrapper'){
 		
+		@include flexy($align: center);
+		background-color: palette(grey, x-light);
+		@include border(1px, $color: palette(grey));
+		@extend %br-default;
+		padding: em(20px);
+		margin-top:em(20px);
+		
+		h3{
+			color: palette(primary);
+		}
+		
+		p:nth-child(1){
+			font-size: em(18px);
+			color: palette(primary);
+		}
+		
+		p:nth-child(2) {
+			font-size: em(30px);
+		}
 		
 		svg{
-			fill: palette(primary);
+			fill: $white;
+			width: em(45px);
+			height: em(45px);
 		}
+		
+		@include e(icon){
+			height: 100%;
+			padding: em(20px);
+			margin-right: em(20px);
+			background-color: palette(primary);
+			@extend %br-round;
+		}		
 	}
 }
 

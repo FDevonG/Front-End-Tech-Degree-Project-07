@@ -4,15 +4,16 @@ Variables
 
 //FONT STACKS
 
-$font-url-google : "https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@300;400;500;800&display=swap";
-$font-stack--primary : 'Zen Kakau Gothic New', 'Helvetica Neue', sans-serif;
+$font-url-google : "https://fonts.googleapis.com/css2?family=Raleway:wght@100;300;400;500;700&display=swap";
+$font-stack--primary : Raleway, 'Helvetica Neue', sans-serif;
 
 //FONT WEIGHTS
-
+$font-weight--x-thin : 100;
 $font-weight--thin : 300;
 $font-weight--light : 400;
 $font-weight--medium : 500;
-$font-weight--bold : 800;
+$font-weight--bold : 700;
+
 
 //DESCRIPTIVE BASE COLORS
 
@@ -32,9 +33,11 @@ $color-accent : $deYork;
 
 $pallets : (
 	grey: (
+		x-light: lighten($grey, 30%),
 		light: lighten($grey, 20%),
 		base: $grey,
 		dark: darken($grey, 20%),
+		x-dark: darken($grey, 30%),
 	),
 	accent:(
 		light : lighten($color-accent, 20%),
@@ -44,7 +47,7 @@ $pallets : (
 	primary:(
 		light: lighten($color-primary, 20%),
 		base: $color-primary,
-		dark:darken($color-primary, 30%),
+		dark:darken($color-primary, 20%),
 	)
 );
 
@@ -52,4 +55,10 @@ $pallets : (
 
 $base__font-size : 16px;
 $base__line : 24px;
+
+//BREAKPOINTS 
+
+$brkpoint-sm : 1px;
+$brkpoint-md : 768px;
+$brkpoint-lg : 1024px;
  
