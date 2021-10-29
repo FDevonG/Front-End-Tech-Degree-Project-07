@@ -5,8 +5,10 @@ Messages
 .message{
 	@include border(1px, $color: palette(grey), $side : bottom);
 	@include e('form'){
-		@include flexy($dir: column, $just : centered);
+		@include flexy($dir: column);
 		row-gap: em(20px);
+		&:first-child{
+		}
 		& input,
 		& textarea{
 			background-color: palette(grey, x-light);
@@ -35,5 +37,23 @@ Messages
 		& button:focus{
 			background-color:palette(accent, dark);
 		}
+		
+		@include e('input'){
+			width: 100%;
+		}
+		
+	}
+	.search-results{
+		position: absolute;
+//		width: inherit;
+//		bottom: 0;
+//		height: 100%;
+		background-color: green;
+//		top:0;
+//		right:0;
+//		bottom:0;
+//		left:0;
+//		height: auto;
+//		width: 100%;
 	}
 }

@@ -55,13 +55,13 @@ Mixins
 		}
 	}
 	@else if $break == "md"{
-		@media(min-width: $brkpoint-md) and (max-width: $brkpoint-lg){
+		@media(min-width: $brkpoint-md){
 			@content;
 		}
 	}
 	@else if $break == 'lg' {
 		@media(min-width: $brkpoint-lg){
-			
+			@content;
 		}
 	}
 	@else {

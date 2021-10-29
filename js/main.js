@@ -3,7 +3,7 @@ MAIN JS
 *********************/
 
 /*************************
-VARIABLES
+GRAPH VARIABLES
 *************************/
 
 const lineCanvas = document.querySelector('#line-graph').getContext('2d');
@@ -105,8 +105,10 @@ document.querySelector('.graph__wrapper__buttons').addEventListener('click', (ev
 function GenerateGraphOptions(type){
 	
 	let graphOptions = {
+		
 		responsive : true,
-//		maintainAspectRatio: true,
+//		maintainAspectRatio: false,
+		
 		plugins: {
 
 		}
@@ -244,13 +246,86 @@ profileInput.addEventListener('change', () => {
 
 
 /*************************
+Alert Box
+*************************/
+
+document.querySelector('#alert-box').addEventListener('click', () => {
+	showNotificationPanel();
+	removeNotificationCircle();
+	document.querySelector('#alert-box').remove();
+});
+
+/*************************
 NOTIFICATIONS
 *************************/
 
-document.querySelector('#close-alert-box').addEventListener('click', () => {
-	document.querySelector('#alert-box').remove();
-	document.querySelector('.notifcation-circle').remove();
+document.querySelector('#notification-bell').addEventListener('click', () => {
+	removeNotificationCircle();
+	
+	document.querySelector('#notification-bell').blur();
+	if(document.querySelector('.dropdown').style.height === ''){
+		showNotificationPanel();
+	} else {
+		removeNotificationStyles();
+	}
 });
+
+window.onclick = (event) => {
+	if(!event.target.matches('svg') && !event.target.matches('#alert-box') && !event.target.matches('#close-alert-box')){
+		if(document.querySelector('.dropdown').style.height === 'auto'){
+			removeNotificationStyles();
+		}
+	}
+}
+
+function removeNotificationCircle(){
+	if(document.querySelector('.user__notification__circle'))
+		document.querySelector('.user__notification__circle').remove();
+}
+
+function showNotificationPanel(){
+	document.querySelector('.dropdown').style.width = '200px';
+	document.querySelector('.dropdown').style.height = 'auto';
+	document.querySelector('.dropdown__content').style.display = 'block';
+}
+
+function removeNotificationStyles(){
+	document.querySelector('.dropdown').style.removeProperty('width');
+	document.querySelector('.dropdown').style.removeProperty('height');
+	document.querySelector('.dropdown__content').style.removeProperty('display');
+}
+
+/*************************
+USER SEARCH 
+*************************/
+
+const users = [
+	'Victoria Chambers',
+	'Dale Byrd',
+	'Dawn Wood',
+	'Dan Oliver',
+];
+
+const searchInput = document.querySelector('.message__form__input');
+const searchResults = document.querySelector('.search-results');
+
+searchInput.addEventListener('keyup', () => {
+	let input = searchInput.value.toLowerCase();
+	let results = [];
+	if(input.length){
+		results = users.filter((item) => {
+			return item.toLowerCase().includes(input);
+		})
+	}
+	searchResults.innerHTML = showSearchResults(results);
+});
+
+function showSearchResults(results){
+	let content = results.map((item) => {
+		return `<li>${item}</li>`
+	}).join('');
+	return `<ul>${content}</ul>`;
+}
 
 
 

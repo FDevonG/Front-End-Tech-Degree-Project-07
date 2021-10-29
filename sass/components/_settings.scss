@@ -3,9 +3,16 @@ Settings
 ***************/
 
 .settings{
+	@include e('form'){
+		@include mq('lg'){
+			height: 100%;
+			@include flexy($dir: column, $just: space-between);
+			padding: em(20px);
+		}
+	}
 	@include e('wrapper'){
-		@include flexy($just : space-between, $align: center);
-		margin: em(10px) 0;
+		@include flexy($just : space-between);
+		margin: em(20px) 0;
 	}
 	@include e('buttons'){
 		margin-top: em(20px);
@@ -13,7 +20,7 @@ Settings
 		gap: 5%;
 		button{
 			@include flex($grow:1);
-			padding: 20px;
+			padding: em(20px);
 			border: none;
 			color: $white;
 			@extend %br-default;
@@ -92,7 +99,6 @@ the form switches
 	right: 0;
 	bottom: 0;
 	background-color: palette(grey, dark);
-//	transition: transform .5s ease-in-out, backround-color .5s ease-in-out;
 	@include flexy($just : space-around, $align : center);
 	color: $white;
 	text-transform: uppercase;
@@ -106,7 +112,6 @@ the form switches
 	left: em(2px);
 	bottom: em(2px);
 	background-color: white;
-//	transition: transform .5s ease-in-out, backround-color .5s ease-in-out;
 	border-radius: 50%;
 }
 .slider,

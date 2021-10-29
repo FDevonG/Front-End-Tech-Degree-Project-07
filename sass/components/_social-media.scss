@@ -5,13 +5,13 @@ Social Media
 .social{
 	@include border(1px, $color: palette(grey), $side : bottom);
 	
-//	.social-container{
-//		@include mq('md'){
-//			@include flexy($just: space-between);
+	.social-container{
+		@include mq('md'){
+			@include flexy($just: space-between);
 //			@include flex(30%);
-//			gap: em(10px);
-//		}
-//	}
+			gap: em(10px);
+		}
+	}
 	
 	@include e('wrapper'){
 		
@@ -39,6 +39,10 @@ Social Media
 			fill: $white;
 			width: em(45px);
 			height: em(45px);
+		}
+		
+		@include mq('md'){
+			@include flex($grow: 1);
 		}
 		
 		@include e(icon){

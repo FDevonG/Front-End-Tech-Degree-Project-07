@@ -3,9 +3,27 @@ Users
 ***************/
 
 .users{
-	@include border(1px, $color: palette(grey, light), $side : bottom);
+	@include border(1px, $color: palette(grey), $side : bottom);
+	font-size: em(14px);
 	@include e('wrapper'){
-		@include border(1px, $color: palette(grey, light), $side : bottom);
+		@include border(1px, $color: palette(grey), $side : bottom);
+		&:last-child(){
+			border:none;
+		}
+		@include mq('md'){
+			@include flexy($just: space-between, $align: center);
+		}
+		@include e('info'){
+			@include mq('md'){
+				@include flexy($align: center);
+				text-align: left;
+			}
+			@include e('text'){
+				@include mq('md'){
+					margin-left: em(20px);
+				}
+			}
+		}
 	}
 }
 

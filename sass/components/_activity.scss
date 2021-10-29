@@ -3,11 +3,32 @@ Activity
 ***************/
 
 .activity{
-	@include border(1px, $color: palette(grey, x-light), $side : bottom);
+	@include border(1px, $color: palette(grey), $side : bottom);
+	font-size: em(14px);
 	@include e('wrapper'){
-		@include border(1px, $color: palette(grey, x-light), $side : bottom);
-		@include e('arrow'){
+		@include border(1px, $color: palette(grey), $side : bottom);
+		&:last-child(){
+				border:none;
+		}
+		@include mq('md'){
+			@include flexy($just: space-between, $align: center);
+		}
+		@include e('info'){
+			@include mq('md'){
+				text-align: left;
+				@include flexy($align: center);
+				& div{
+					margin-left:em(20px);
+				}
+			}
+		}
+		span {
 			@extend %hide;
+			color: palette(primary);
+			font-size: em(30px);
+			@include mq('md'){
+				display: block;
+			}
 		}
 	}
 }

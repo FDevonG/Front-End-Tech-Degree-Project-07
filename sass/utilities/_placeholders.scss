@@ -29,3 +29,11 @@ Place Holders
 %hide{
 	display:none;
 }
+
+%clearfix{
+	&:after{
+		content:"";
+		display:table;
+		clear:both;
+	}
+}
