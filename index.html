@@ -239,12 +239,14 @@
 						<h3>Message User</h3>
 						<form class="message__form panel" aria-label="Message User" role="form">
 							<div>
-								<input class="message__form__input" type="text" placeholder="Search for User" name="user-search">
+								<label for="user-input" class="srt">Search for user</label>
+								<input class="message__form__input" id="user-input" type="text" placeholder="Search for User" name="user-search">
 								<div class="search-results">
 									
 								</div>
 							</div>
-							<textarea class="message__form__textarea" name="user-message" rows="10" placeholder="Message for User"></textarea>
+							<label for="message-input" class="srt">Message for user</label>
+							<textarea id="message-input" class="message__form__textarea" name="user-message" rows="10" placeholder="Message for User"></textarea>
 							<button id="message-button" class="message__form__button" type="button">Send</button>
 						</form>
 					</section>
@@ -272,6 +274,7 @@
 									</span>
 								</label>
 							</div>
+							<label for="time-zone" class="srt">Select your time zone</label>
 							<select name="time-zone" id="time-zone">
 								<option value="" disabled selected="selected" name="time-zone">Select Timezone</option>
 								<option value="-12:00">(GMT -12:00) Eniwetok, Kwajalein</option>

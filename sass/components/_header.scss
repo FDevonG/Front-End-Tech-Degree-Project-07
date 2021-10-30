@@ -79,12 +79,11 @@ Header
 				padding: em(12px) em(16px);
 				text-decoration: none;
 				display: block;
-				transition: color .5s ease-out, background-color .5s ease-out;
+				transition: background-color .5s ease-out;
 				@extend %br-default;
 				&:hover,
 				&:focus{
 					background-color: palette(accent, dark);
-					color:palette(primary, light);
 				}
 			}
 		}
