@@ -37,12 +37,12 @@ Body
 	margin: em(20px);
 	@extend %br-default;
 	position: relative;
-	cursor: pointer;
 }
 
 #close-alert-box{
 	position: absolute;
 	right: em(20px);
+	cursor: pointer;
 }
 
 //used on the bottom panels to position them side by side on the big screens

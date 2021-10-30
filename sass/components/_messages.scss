@@ -7,12 +7,11 @@ Messages
 	@include e('form'){
 		@include flexy($dir: column);
 		row-gap: em(20px);
-		&:first-child{
-		}
 		& input,
 		& textarea{
 			background-color: palette(grey, x-light);
 			@include border(1px, $color : palette(grey));
+			color: palette(primary);
 		}
 		button {
 			background-color:palette(primary);
@@ -38,6 +37,11 @@ Messages
 			background-color:palette(accent, dark);
 		}
 		
+		& input::placeholder,
+		& textarea::placeholder{
+			color: palette(secondary, dark);
+		}
+		
 		@include e('input'){
 			width: 100%;
 		}
@@ -45,15 +49,29 @@ Messages
 	}
 	.search-results{
 		position: absolute;
-//		width: inherit;
-//		bottom: 0;
-//		height: 100%;
-		background-color: green;
-//		top:0;
-//		right:0;
-//		bottom:0;
-//		left:0;
-//		height: auto;
-//		width: 100%;
+		background-color: palette(primary);
+		color: $white;
+		ul{
+			list-style: none;
+			padding-left:0;
+			li{
+				padding: em(10px);
+				cursor: pointer;
+				transition: background-color .5s ease-out;
+				&:hover,
+				&:focus{
+					background-color: palette(accent);
+				}
+			}
+		}
 	}
 }
+
+
+
+
+
+
+
+
+

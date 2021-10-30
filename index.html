@@ -245,7 +245,7 @@
 								</div>
 							</div>
 							<textarea class="message__form__textarea" name="user-message" rows="10" placeholder="Message for User"></textarea>
-							<button class="message__form__button" type="submit">Send</button>
+							<button id="message-button" class="message__form__button" type="button">Send</button>
 						</form>
 					</section>
 
@@ -272,7 +272,7 @@
 									</span>
 								</label>
 							</div>
-							<select name="time-zone">
+							<select name="time-zone" id="time-zone">
 								<option value="" disabled selected="selected" name="time-zone">Select Timezone</option>
 								<option value="-12:00">(GMT -12:00) Eniwetok, Kwajalein</option>
 								<option value="-11:00">(GMT -11:00) Midway Island, Samoa</option>
@@ -316,8 +316,8 @@
 								<option value="+14:00">(GMT +14:00) Line Islands, Tokelau</option>
 							</select>
 							<div class="settings__buttons">
-								<button type="button">Save</button>
-								<button type="button">Cancel</button>
+								<button type="button" id="save-settings">Save</button>
+								<button type="button" id="clear-settings">Cancel</button>
 							</div>
 						</form>
 					</section>

@@ -4,7 +4,7 @@ Nav
 
 .nav{
 	@include flexy($just: center, $align: center);
-	background-color: palette(primary, dark);
+	background-color: palette(secondary);
 	@include e(item){
 		margin:15px;
 		width: 30px;

@@ -66,5 +66,10 @@ a {
 }
 
 canvas {
-		max-width: 100%;
-	}
+	max-width: 100%;
+}
+
+button,
+select{
+	cursor:pointer;
+}

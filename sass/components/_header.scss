@@ -73,7 +73,7 @@ Header
 		
 		@include e('content'){
 			display:none;
-			background-color: palette(primary, dark);
+			background-color: palette(secondary);
 			a {
 				color: $white;
 				padding: em(12px) em(16px);

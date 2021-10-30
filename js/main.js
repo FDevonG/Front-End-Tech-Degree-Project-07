@@ -20,6 +20,9 @@ const primaryColorTransparent = 'rgba(116, 119, 191, 0.4)';
 const secondaryColor = 'rgb(129,201,143)';
 const thirdColor = 'rgb(116, 177, 191)';
 
+
+const errorColor = '#ff7561';
+
 /*************************
 GENERAL GRAPH FUNCTIONS
 *************************/
@@ -120,7 +123,7 @@ function GenerateGraphOptions(type){
 						backgroundColor : primaryColorTransparent,
 						borderWidth : 1,
 						borderColor : primaryColor,
-						tension : 0,
+						tension : .1,
 						fill: true,
 					},
 
@@ -189,67 +192,95 @@ SETTINGS
 const emailInput = document.querySelector('#email-notifications');
 const emailOnText = document.querySelector('#email-text-on');
 const emailOffText = document.querySelector('#email-text-off');
+let email;
 
-const email = localStorage.getItem('email');
+const profileInput = document.querySelector('#profile-public');
+const profileOnText = document.querySelector('#profile-text-on');
+const profileOffText = document.querySelector('#profile-text-off');
+let profile;
 
-if(email === 'on'){
-	emailInput.checked = true;
-	emailOffText.textContent = '';
-	emailOnText.textContent = 'On';
-} else {
-	emailInput.checked = false;
-	emailOffText.textContent = 'Off';
-	emailOnText.textContent = '';
-}
+const timezoneSelect = document.querySelector("#time-zone");
+let timeZone;
+
+buildSettings();
 
 emailInput.addEventListener('change', () => {
 	if(emailInput.checked){
-		localStorage.setItem('email', 'on');
 		emailOffText.textContent = '';
 		emailOnText.textContent = 'On';
 	} else{
-		localStorage.setItem('email', 'off');
 		emailOffText.textContent = 'Off';
 		emailOnText.textContent = '';
 	}
 	emailInput.blur();
 });
 
-const profileInput = document.querySelector('#profile-public');
-const profileOnText = document.querySelector('#profile-text-on');
-const profileOffText = document.querySelector('#profile-text-off');
-
-const profile = localStorage.getItem('profile');
-
-if(profile === 'on'){
-	profileInput.checked = true;
-	profileOffText.textContent = '';
-	profileOnText.textContent = 'On';
-} else {
-	profileInput.checked = false;
-	profileOffText.textContent = 'Off';
-	profileOnText.textContent = '';
-}
-
 profileInput.addEventListener('change', () => {
 	if(profileInput.checked){
-		localStorage.setItem('profile', 'on');
 		profileOffText.textContent = '';
 		profileOnText.textContent = 'On';
 	} else{
-		localStorage.setItem('profile', 'off');
 		profileOffText.textContent = 'Off';
 		profileOnText.textContent = '';
 	}
 	profileInput.blur();
 });
 
+document.querySelector('.settings').addEventListener('click', (event) => {
+	if(event.target.matches('#save-settings')){
+		event.target.blur();
+		localStorage.setItem('timezone', timezoneSelect.value);
+		localStorage.setItem('profile', profileInput.checked);
+		localStorage.setItem('email', emailInput.checked);
+	} else if(event.target.matches('#clear-settings')){
+		buildSettings();
+		event.target.blur();
+	}
+});
+
+//builds the settings upon page load
+function buildSettings(){
+	email = localStorage.getItem('email');
+	profile = localStorage.getItem('profile');
+	timeZone = localStorage.getItem('timezone');
+	
+	if(email === 'true'){
+		emailInput.checked = true;
+		emailOffText.textContent = '';
+		emailOnText.textContent = 'On';
+	} else {
+		emailInput.checked = false;
+		emailOffText.textContent = 'Off';
+		emailOnText.textContent = '';
+	}
+	
+	if(profile === 'true'){
+		profileInput.checked = true;
+		profileOffText.textContent = '';
+		profileOnText.textContent = 'On';
+	} else {
+		profileInput.checked = false;
+		profileOffText.textContent = 'Off';
+		profileOnText.textContent = '';
+	}
+	
+	if(timeZone !== '' && timeZone !== null){
+		const options = timezoneSelect.children;
+		for(let i = 0; i < options.length; i++){
+			if (options[i].value.toLowerCase() === timeZone.toLowerCase()){
+				options[i].selected = true;
+				break;
+			}
+		}
+	}
+}
+
 
 /*************************
 Alert Box
 *************************/
 
-document.querySelector('#alert-box').addEventListener('click', () => {
+document.querySelector('#close-alert-box').addEventListener('click', () => {
 	showNotificationPanel();
 	removeNotificationCircle();
 	document.querySelector('#alert-box').remove();
@@ -261,6 +292,9 @@ NOTIFICATIONS
 
 document.querySelector('#notification-bell').addEventListener('click', () => {
 	removeNotificationCircle();
+	if(document.querySelector('#alert-box')){
+		document.querySelector('#alert-box').remove();
+	}
 	
 	document.querySelector('#notification-bell').blur();
 	if(document.querySelector('.dropdown').style.height === ''){
@@ -296,7 +330,7 @@ function removeNotificationStyles(){
 }
 
 /*************************
-USER SEARCH 
+MESSAGES
 *************************/
 
 const users = [
@@ -306,8 +340,23 @@ const users = [
 	'Dan Oliver',
 ];
 
+//used to find the user
 const searchInput = document.querySelector('.message__form__input');
+//used to display the results of the search
 const searchResults = document.querySelector('.search-results');
+//used to store the user message
+const message = document.querySelector('.message__form__textarea');
+
+changeResultsWidth();
+
+searchResults.parentNode.addEventListener('resize', () =>{
+	changeResultsWidth();
+})
+
+//this resizes the search results to the same size as the input 
+function changeResultsWidth(){
+	searchResults.setAttribute('style', 'width:' + searchResults.parentNode.offsetWidth.toString() + 'px');
+}
 
 searchInput.addEventListener('keyup', () => {
 	let input = searchInput.value.toLowerCase();
@@ -317,15 +366,59 @@ searchInput.addEventListener('keyup', () => {
 			return item.toLowerCase().includes(input);
 		})
 	}
-	searchResults.innerHTML = showSearchResults(results);
+	if(showSearchResults(results) !== null) {
+		searchResults.innerHTML = showSearchResults(results);
+	} else{
+		searchResults.innerHTML = '';
+	}
 });
 
+//filters and returns a string to be displayed with the matching names
 function showSearchResults(results){
-	let content = results.map((item) => {
-		return `<li>${item}</li>`
-	}).join('');
-	return `<ul>${content}</ul>`;
+	if(results.length){
+		let content = results.map((item) => {
+			return `<li>${item}</li>`
+		}).join('');
+		return `<ul>${content}</ul>`;
+	}else {
+		return null;
+	}
 }
+
+document.querySelector('.message').addEventListener('click', (event) => {
+	if(event.target.tagName === 'LI'){
+		searchInput.value = event.target.textContent;
+		searchResults.innerHTML = '';
+	} else if(event.target.id === 'message-button'){
+		sendMessage();
+		event.target.blur();
+	}
+})
+
+function sendMessage(){
+	if(searchInput.value === ''){
+		searchInput.setAttribute('style', `border: 1px solid ${errorColor}`);
+		searchInput.setAttribute('style', `background-color: ${errorColor}`);
+		searchInput.setAttribute('placeholder', 'Please select user!');
+		if(message.value === ''){
+			message.setAttribute('style', `border: 1px solid ${errorColor}`);
+			message.setAttribute('style', `background-color: ${errorColor}`);
+			message.setAttribute('placeholder', 'Please enter a message!');
+		}
+	} else if(searchInput.value !== '' && message.value !== ''){
+		searchInput.value = '';
+		message.value = '';
+	}
+}
+
+searchInput.addEventListener('focus', () => {
+	searchInput.removeAttribute('style');
+})
+
+message.addEventListener('focus', () => {
+	message.removeAttribute('style');
+});
+
 
 
 
