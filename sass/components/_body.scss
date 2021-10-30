@@ -2,14 +2,28 @@
 Body
 ***************/
 
-.main-content{
+body{
 	@include mq('md'){
-		@include flexy();
+		width: 100%;
+		@include grid($just: stretch, $align: stretch);
+		grid-template-areas: 
+			"header-area header-area"
+			"nav-area main-area";
+		grid-template-columns: max-content auto;
 	}
 }
 
+.header{
+	grid-area: header-area;
+}
+
+nav {
+	grid-area: nav-area;
+}
+
 .main-content-wrapper{
-	width: 100%;
+//	width: 100%;
+	grid-area: main-area;
 }
 
 //thise holds the h2 and the empty box content next to it at the top of the page

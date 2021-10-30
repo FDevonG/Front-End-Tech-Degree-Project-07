@@ -3,11 +3,13 @@ Header
 ***************/
 
 .header {
-	@include flexy($just: space-between, $align: center);
-	padding: 15px;
-	background-color: palette(primary);
-	color:$white;
-	min-width: 100%;
+	@include e('wrapper'){
+		@include flexy($just: space-between, $align: center);
+		padding: 15px;
+		background-color: palette(primary);
+		color:$white;
+		min-width: 100%;
+	}
 	
 	.logo {
 		position: relative;
